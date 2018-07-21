@@ -1,0 +1,1645 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic&subset=latin,latin-ext);
+
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic&subset=latin,latin-ext);
+
+/*######  VARIABLES  ######*/
+
+$font-family: "Open Sans", sans-serif;
+$font-weight: 400;
+$font-size: 13px;
+
+$main-color: #e77d04;
+$main-background-color: #f1f1f1;
+$header-background-color: #fff;
+
+$boxed-width: 90%;
+$site-background: url(../images/background.jpg) center center no-repeat fixed;
+$site-background-size: cover;
+
+$arrow-color: #fff;
+$arrow-background-color: $main-color;
+
+$topbar-background: #34495e;
+$sidebar-background: #34495e;
+$sidebar-second-background: #2c3e50;
+
+$sidebar-aside-title-color: #fff;
+$sidebar-aside-title-font-weight: 300;
+
+$animation: all 0.3s ease-in-out;
+
+$post-title-font-weigt: 300;
+$post-title: uppercase;
+$after-post: '[...]';
+$category-separator: '/';
+
+$modern-list-separator: " , ";
+$modern-list-separator-before-last: " and ";
+$modern-list-separator-last: ".";
+
+/* ==========================================================================
+General CSS
+========================================================================== */
+html {
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  a {
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: $font-family !important;
+  font-size: $font-size !important;
+  background-color: $main-background-color !important;
+}
+
+a {
+  &:focus, &:active, &:hover {
+    outline: 0 !important;
+    text-decoration: none !important;
+  }
+}
+
+h1, h2, h3, h4, h5, p, a, li, ul, p {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  color: #777;
+}
+
+::selection {
+  background: $main-color;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: $main-color;
+  color: #fff;
+}
+
+.img-border-rounded {
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -khtml-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid $main-color;
+}
+
+/* ==========================================================================
+Container
+========================================================================== */
+
+#container {
+  width: 100%;
+  height: 100%;
+  transition: $animation;
+  -webkit-transition: $animation;
+}
+
+#main-content {
+  margin-left: 300px;
+  transition: $animation;
+  -webkit-transition: $animation;
+  background-color: $main-background-color;
+  position: relative;
+}
+
+.wrapper {
+  display: inline-block;
+  transition: $animation;
+  -webkit-transition: $animation;
+  margin-top: 10px;
+  padding: 15px;
+  width: 100%;
+  background-color: $main-background-color;
+}
+
+/* ==========================================================================
+Container >>> Full Width
+========================================================================== */
+
+body.full-width .topbar {
+  border-top-left-radius: 0px !important;
+  -webkit-border-top-left-radius: 0px !important;
+  -moz-border-radius-topleft: 0px !important;
+  position: fixed;
+  z-index: 0;
+}
+
+body.full-width.opacity{
+  background: $site-background !important;
+  background-size: $site-background-size !important;
+}
+
+/* ==========================================================================
+Container >>> Boxed
+========================================================================== */
+
+.boxed {
+  background: $site-background;
+  background-size: $site-background-size;
+  #container {
+    width: $boxed-width;
+    margin: auto;
+    overflow: hidden !important;
+    position: relative;
+    margin-top: 30px;
+    #sidebar {
+      position: absolute;
+      height: 100%;
+    }
+  }
+  #container .header {
+    width: 100%;
+    left: auto;
+    right: auto;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 10px;
+  }
+}
+  .sticky-sidebar {
+    position: fixed!important;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+  }
+
+/* ==========================================================================
+Container >>> Boxed and Opacity
+========================================================================== */
+
+.opacity {
+  opacity: 0.88999998569488525390625;
+}
+
+/* ==========================================================================
+Container >>> Fixed Header
+========================================================================== */
+
+.fixed .header {
+  position: fixed !important;
+  border-bottom: 1px solid #ADCA57;
+}
+
+.full-width.fixed .header {
+  width: 100% !important;
+}
+
+.boxed.fixed .header {
+  width: $boxed-width !important;
+  position: fixed !important;
+  border-bottom: 1px solid $main-color;
+}
+
+.full-width.fixed .header {
+  position: fixed !important;
+  border-bottom: 1px solid $main-color;
+}
+
+.boxed.fixed #container, .full-width.fixed #container {
+  margin-top: 0 !important;
+}
+
+.boxed.fixed {
+  #main-content, #sidebar {
+    padding-top: 80px;
+  }
+}
+
+.full-width.fixed {
+  #main-content, #sidebar {
+    padding-top: 80px;
+  }
+}
+
+.boxed.fixed .topbar, .full-width.fixed .topbar {
+  border-top-left-radius: 0 !important;
+  border-bottom: 1px solid $main-color;
+}
+
+/* ==========================================================================
+Header
+========================================================================== */
+
+.header {
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  background: $header-background-color;
+  height: 80px;
+  transition: $animation;
+  -webkit-transition: $animation;
+}
+
+.topbar {
+  background: $topbar-background;
+  float: left;
+  width: 300px;
+  height: 80px;
+  border-top-left-radius: 10px;
+  position: relative;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+a.logo {
+  color: #fff;
+  font-size: $font-size + 9;
+  font-weight: $font-weight + 500;
+  text-transform: uppercase;
+  float: left;
+  &:hover, &:focus {
+    color: $main-color;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+.topbar-content {
+  padding-top: 0;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding-left: 300px;
+}
+
+.topbar-title {
+  color: #777;
+  font-weight: $font-weight + 300;
+  font-size: $font-size;
+}
+
+.topbar-description {
+  color: #777;
+  font-weight: $font-weight;
+  margin: 0;
+  padding-bottom: 20px;
+  font-size: $font-size;
+}
+
+.box_rotate {
+  transform: rotate(180deg);
+}
+
+.box_transition {
+  transition: $animation;
+  -webkit-transition: $animation;
+}
+
+.box_rotateback {
+  transform: rotate(0deg);
+}
+
+.box_transitionback {
+  transition: $animation;
+  -webkit-transition: $animation;
+}
+
+i.arrow {
+  padding: 13px;
+  font-size: $font-size + 5;
+  margin-top: 1px;
+  color: $arrow-color;
+  transform: scale(1.2, 1);
+}
+
+/* ==========================================================================
+Sidebar
+========================================================================== */
+
+#sidebar {
+  width: 300px;
+  height: 100%;
+  position: fixed;
+  background: $sidebar-background;
+  transition: $animation;
+  -webkit-transition: $animation;
+  ul li {
+    position: relative;
+  }
+}
+
+body.full-width {
+  .sidebar-content{
+    height: calc(100% - 80px);
+  }
+  &.fixed .sidebar-content{
+    height: 100%;
+  }
+}
+body.boxed .sidebar-content {
+  height: 100%;
+}
+
+.sidebar-arrow-box {
+  float: left;
+  margin-top: 17px;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  right: -60px;
+  border-radius: 50%;
+
+  background: $arrow-background-color;
+  .fa-bars {
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size + 2;
+    padding: 8px 8px 8px 9px;
+    color: rgba(0, 0, 0, 0.3);
+  }
+  &:hover {
+    background: darken($main-color, 15);
+  }
+}
+
+.hide-left-bar {
+  margin-left: -300px !important;
+  transition: $animation;
+  -webkit-transition: $animation;
+}
+
+.force-left {
+  margin-left: 0 !important;
+}
+
+.sidebar-menu {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-aside-title {
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.1);
+  h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: $sidebar-aside-title-font-weight;
+    font-size: $font-size + 1;
+    color: $sidebar-aside-title-color;
+    padding: 17px;
+    margin: 0;
+  }
+}
+
+/* ==========================================================================
+Sidebar  >>>   About Me
+========================================================================== */
+
+#about-me {
+  background-color: $sidebar-second-background;
+  overflow: hidden;
+}
+
+.about-me-content {
+  padding: 10px;
+    p {
+      color: #d9d9d9;
+      font-size: $font-size;
+      line-height: 1.8;
+      text-align: justify;
+    }
+}
+.author-img{
+    float: left;
+    margin: 8px 8px 8px 0;
+}
+
+.about-me-img {
+  -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+
+}
+
+.social {
+  float: left;
+  padding: 10px;
+  margin: 0;
+  li {
+    display: inline-block;
+    padding: 5px;
+    a {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      background: #ededef;
+      color: #494949;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 50%;
+      &:hover {
+        background: $main-color;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+Sidebar  >>>   Lastest Post
+========================================================================== */
+
+#lastest-post {
+  overflow: hidden;
+  background-color: $sidebar-background;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    width: 100%;
+    height: 75px;
+  }
+  ul li div.section {
+    width: 100%;
+    height: 75px;
+    padding-top: 10px;
+  }
+  li div.section:hover {
+    border-right: 5px solid;
+    height: 100%;
+    border-bottom: 0;
+    color: #114c48;
+    background-color: darken($main-color, 5);
+    /* margin-left: 1px;*/
+  }
+  ul li div.section:hover:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -1.5em;
+    border-top: 1.5em solid transparent;
+    border-bottom: 1.5em solid transparent;
+    border-right: 1em solid #1A4C45;
+    right: 0;
+  }
+}
+
+.lastest-post-img {
+  float: left;
+  position: relative;
+  padding-left: 4px;
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  img {
+    border-radius: 5px;
+    width: 65px;
+    height: 60px;
+  }
+}
+
+.lastest-post-content {
+  float: left;
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+}
+
+.lastest-post-category {
+  float: left;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.lastest-post-date {
+  float: right;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  text-transform: uppercase;
+  color: lighten($main-color, 10);
+  font-weight: $font-weight + 300;
+  &:hover {
+    color: lighten($main-color, 10);
+    font-weight: $font-weight + 300;
+  }
+}
+
+.lastest-post-title {
+  width: 100%;
+  float: left;
+  font-size: $font-size;
+  font-weight: $font-weight + 100;
+  color: #d9d9d9;
+  &:hover {
+    color: #d9d9d9;
+  }
+}
+
+/* ==========================================================================
+Sidebar  >>>   Recent Comments
+========================================================================== */
+
+#recent-comments {
+  height: auto;
+  overflow: hidden;
+  background-color: $sidebar-second-background;
+}
+
+.recent-comments-list {
+  padding: 10px 0 10px 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
+  float: left;
+  line-height: 2;
+  border-bottom: 1px solid $main-color;
+  &:last-child {
+    border-bottom: none;
+  }
+  li {
+    padding: 0 5px 0 5px;
+    display: inline-block;
+    color: #d9d9d9;
+  }
+}
+
+ul.recent-comments-list ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-author-link {
+  color: #fff;
+  font-weight: $font-weight + 300;
+  &:hover {
+    color: #f1f1f1;
+
+  }
+}
+
+.comment-topic-link {
+  font-size: $font-size + 1;
+  color: $main-color;
+  &:hover {
+    font-size: $font-size + 1;
+    color: $main-color;
+  }
+}
+
+.preposition, .comment-link {
+  color: #d9d9d9;
+  &:hover {
+    color: #d9d9d9;
+  }
+}
+
+/* ==========================================================================
+Sidebar  >>>   Tags
+========================================================================== */
+
+#tag-cloud {
+  overflow: hidden;
+  background-color: $sidebar-background;
+}
+
+.tagscontent {
+  padding: 15px 5px 15px 5px;
+  a {
+    color: #ededef;
+    font-weight: $font-weight + 100;
+    font-style: normal;
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+    font-size: $font-size - 3;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: #ededef solid 1px;
+    &:hover {
+      background-color: darken($main-color,15);
+      color: #fff;
+    }
+  }
+}
+
+body {
+    &.boxed.fixed #sidebar .tagscontent, &.full-width.fixed #sidebar .tagscontent {
+      padding: 15px 5px 10px 5px !important;
+    }
+  }
+
+/* ==========================================================================
+Elements
+========================================================================== */
+
+.modern-list li {
+  &:after {
+    content: $modern-list-separator;
+  }
+  &:first-child {
+    &:after {
+      content: "";
+    }
+  }
+  &:last-child {
+    &:before {
+      content: $modern-list-separator-before-last;
+    }
+    &:after {
+      content: $modern-list-separator-last;
+    }
+  }
+}
+
+.line {
+  border-bottom: 2px solid #076C66;
+  width: 100%;
+  display: inline-block;
+}
+
+/* ==========================================================================
+Elements  >>>  Layouts and Grids
+========================================================================== */
+
+.panel {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.panel-heading {
+  border-color: #eff2f7;
+  font-size: $font-size;
+  font-weight: $font-weight + 100;
+  background: #fafafa;
+  text-transform: uppercase;
+  padding: 15px;
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+.panel-yellow {
+  background: #FFEB3B;
+}
+
+.panel-blue {
+  background: #00BCD4;
+}
+
+.panel-orange {
+  background: #FF9800;
+}
+
+.panel-green {
+  background: #CDDC39;
+}
+.panel-turquoise {
+  background: #1abc9c;
+}
+.panel-amethyst {
+  background: #9b59b6;
+}
+.panel-emerald {
+  background: #2ecc71;
+}
+
+.panel-body {
+  color: #767676;
+}
+
+.panel-body-border {
+  border-top: 1px solid #ddd;
+}
+
+/* ==========================================================================
+Elements  >>>  Icons
+========================================================================== */
+
+.fa-hover a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  color: #222222;
+  line-height: 32px;
+  height: 32px;
+  padding-left: 10px;
+  border-radius: 4px;
+  &:hover {
+    background-color: $main-color;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.bs-glyphicons {
+  li {
+    float: left;
+    width: 25%;
+    height: 115px;
+    padding: 10px;
+    font-size: $font-size - 3;
+    line-height: 1.4;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #fff;
+    &:hover {
+      color: #fff;
+      background-color: $main-color;
+    }
+  }
+  .glyphicon {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: $font-size + 11;
+  }
+}
+
+.bs-glyphicons-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.bs-glyphicons .glyphicon-class {
+  display: block;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* ==========================================================================
+Elements  >>>  Typography
+========================================================================== */
+
+ol {
+  &.upper-roman {
+    list-style-type: upper-roman;
+  }
+  &.lower-alpha {
+    list-style-type: lower-alpha;
+  }
+  &.upper-latin {
+    list-style-type: upper-latin;
+  }
+}
+
+hr {
+  &.zero {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  &.soften {
+    height: 1px;
+    border: 0;
+  }
+}
+
+p {
+  &.drop-caps:first-letter, &.drop-caps-ddd:first-letter {
+    font-family: Georgia;
+    float: left;
+    color: $main-color;
+    padding: 14px 5px;
+    margin: 4px;
+    font-size: $font-size + 55;
+    font-weight: 200;
+    line-height: 30px;
+    margin: 0 5px 0 0;
+  }
+  &.dashed:first-letter {
+    border: #666 dashed 1px;
+  }
+  &.solid:first-letter {
+    border: #666 solid 1px;
+  }
+  &.drop-caps-shadow:first-letter {
+    font-family: Georgia;
+    float: left;
+    color: $main-color;
+    font-size: $font-size + 62;
+    line-height: 60px;
+    padding: 6px 6px 0 0;
+    text-shadow: 2px 2px 1px #EEE, 3px 3px 1px #3B444B;
+  }
+}
+
+.arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.arial-black {
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.comic-sans {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.impact {
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+.georgia {
+  font-family: Georgia;
+}
+
+.verdana {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.palatino {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.courier-new {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.thoma {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+.times-new-roman {
+  font-family: "Times New Roman", Times, serif;
+}
+
+em {
+  font-style: italic;
+  line-height: inherit;
+}
+
+strong {
+  font-weight: $font-weight + 400;
+}
+
+/* ==========================================================================
+Mega Menu
+========================================================================== */
+
+.yamm {
+  .nav, .collapse, .dropup, .dropdown {
+    position: static;
+  }
+  .container {
+    position: relative;
+  }
+  .dropdown-menu {
+    left: auto;
+  }
+  .yamm-content {
+    padding: 5px 15px 2px 15px;
+  }
+  .dropdown.yamm-fw .dropdown-menu {
+    left: 15px;
+    right: 15px;
+    background: #fff;
+    &.full-width {
+      left: 15px;
+      right: 15px;
+    }
+    &.half-width {
+      width: 50%;
+    }
+    &.quarter-width {
+      width: 25%;
+    }
+  }
+}
+
+.autowidth {
+  width: 100%;
+  height: auto;
+}
+
+.yamm-content ul {
+  list-style: none;
+  padding: 0;
+  li a {
+    &:before {
+      content: '\203A';
+      display: inline-block;
+      margin-right: 6px;
+      top: -1px;
+      font-weight: $font-weight + 400;
+    }
+    padding: 4px 0;
+    text-decoration: none;
+    color: #666;
+    margin: 2px 0;
+    font-size: $font-size;
+    line-height: 20px;
+    &:hover {
+      color: #1D1D1D;
+    }
+  }
+}
+.yamm-content .content p{
+    font-size: $font-size;
+}
+
+.yamm {
+  > ul > li {
+    > a {
+      box-shadow: -1px 0 0 rgba(0, 0, 0, 0.2) inset;
+    }
+    &:hover > a {
+      box-shadow: 2px 0 10px -5px rgba(0, 0, 0, 0.6) inset, -2px 0 10px -5px rgba(0, 0, 0, 0.6) inset;
+    }
+  }
+  .bordered {
+    border-right: 1px solid #ddd;
+  }
+}
+
+.navbar-default {
+  background-color: $main-color !important;
+  border: none !important;
+}
+
+.navbar {
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
+
+.nav .open > a {
+  border: none !important;
+  &:focus, &:hover {
+    border: none !important;
+  }
+}
+
+.navbar-default .navbar-nav > {
+  .open > a {
+    box-shadow: 2px 0 10px -5px rgba(0, 0, 0, 0.6) inset, -2px 0 10px -5px rgba(0, 0, 0, 0.6) inset;
+    background-color: darken($main-color, 15) !important;
+    color: #fff !important;
+    &:focus, &:hover {
+      box-shadow: 2px 0 10px -5px rgba(0, 0, 0, 0.6) inset, -2px 0 10px -5px rgba(0, 0, 0, 0.6) inset;
+      background-color: darken($main-color, 15) !important;
+      color: #fff !important;
+    }
+  }
+  li > a {
+    box-shadow: none;
+    border-right: none;
+    box-shadow: -1px 0 0 rgba(0, 0, 0, 0.2) inset;
+    color: #fff !important;
+  }
+}
+
+.navbar-nav .open .dropdown-menu {
+  background-color: #fff !important;
+}
+
+.navbar-default {
+  .navbar-toggle {
+    &:focus, &:hover {
+      background-color: lighten($main-color, 15) !important;
+    }
+  }
+  .navbar-brand {
+    color: #fff !important;
+    display: none;
+  }
+  .navbar-toggle .icon-bar {
+    background-color: #fff !important;
+  }
+}
+
+.dropdown-toggle {
+  padding-right: 20px !important;
+  &:after {
+    position: absolute;
+    content: '\203A';
+    top: 15px;
+    margin-left: 10px;
+    font-weight: $font-weight + 400;
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    display: none;
+  }
+}
+
+.megamenusubitems li, .yamm-content ul li {
+  margin-bottom: 5px;
+}
+
+.hrlist li {
+  padding-bottom: 10px;
+}
+
+/* ==========================================================================
+Post Modals
+========================================================================== */
+
+.flat {
+  border-radius: 0 !important;
+}
+
+.hero {
+  padding: 0 !important;
+  transition: $animation;
+  -webkit-transition: $animation;;
+  &:hover {
+    box-shadow: 0 0 30px 0 rgba(198, 198, 198, 0.7);
+  }
+}
+
+/* ==========================================================================
+Post Modals >>> Horizontal Posts >>> Post Modal First
+========================================================================== */
+
+.post-horizontal {
+  width: 100%;
+}
+
+.post-horizontal-img {
+  width: 10%;
+  float: left;
+  img {
+    border-radius: 50%;
+    /*min-width: 55px;
+    height: 55px;*/
+  }
+}
+
+.post-horizontal-detail {
+  width: 90%;
+  float: left;
+}
+
+.post-horizontal-title h1 {
+  margin: 0 auto;
+  a {
+    color: #000;
+    font-size: $font-size + 7;
+    font-weight: $post-title-font-weigt;
+    text-transform: $post-title;
+  }
+}
+
+.post-horizontal-about {
+  display: block;
+  height: 20px;
+}
+
+.post-horizontal-category {
+  padding-top: 10px;
+  width: 50%;
+  float: left;
+  a {
+    color: darken($main-color, 15);
+    display: inline-block;
+    &:hover {
+      color: $main-color;
+    }
+    &:after {
+      content: $category-separator;
+      padding-right: 10px;
+      margin-left: 10px;
+      overflow: hidden;
+    }
+    &:last-child:after {
+      content: ' ';
+    }
+  }
+}
+
+.post-horizontal-date {
+  padding-top: 10px;
+  float: right;
+  text-align: right;
+  width: 50%;
+  a {
+    color: darken($main-color, 15);
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+.post-horizontal-post {
+  padding-top: 20px;
+  p {
+    color: #777;
+    &:after {
+      content: $after-post;
+    }
+  }
+}
+
+.post-horizontal-info {
+  display: inline-block;
+  width: 100%;
+}
+
+.post-horizontal-tags {
+  float: left;
+  ul li a {
+    color: darken($main-color, 15);
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+.post-horizontal-comments {
+  width: 25%;
+  float: right;
+  text-align: right;
+  ul li a {
+    color: darken($main-color, 15);
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+/* ==========================================================================
+Post Modals >>> Horizontal Posts >>> Post Modal Second
+========================================================================== */
+
+.post-horizontal-second {
+  width: 100%;
+}
+
+.post-horizontal-second-img {
+  width: 35%;
+  float: left;
+  padding: 0;
+  margin: 0;
+  img {
+    width: 100%;
+    height: 304px;
+  }
+}
+
+.post-horizontal-second-detail {
+  width: 65%;
+  float: left;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.post-horizontal-second-category {
+  color: #fff;
+  background: $main-color;
+  display: inline-block;
+  font-size: $font-size -1;
+  font-weight: $font-weight + 300;
+  text-transform: uppercase;
+  margin: 5px 0;
+  padding: 3px 8px;
+  border-radius: 1px;
+  a {
+    color: #fff;
+    font-size: $font-size -1;
+    font-weight: $font-weight + 200;
+    text-transform: uppercase;
+      &:hover{
+          color: #f1f1f1;
+      }
+  }
+}
+
+.post-horizontal-second-title {
+  width: 100%;
+  h1 a {
+    color: #000;
+    font-size: $font-size + 11;
+    text-decoration: none;
+    font-weight: $post-title-font-weigt;
+    width: 100%;
+    display: block;
+    text-transform: $post-title;
+  }
+}
+
+.post-horizontal-second-post {
+  padding-top: 0px;
+  p {
+    color: #777;
+    &:after {
+      content: $after-post;
+    }
+  }
+}
+
+.post-horizontal-second-tags {
+  padding-top: 15px;
+  a {
+    color: darken($main-color, 15);
+  }
+}
+
+/* ==========================================================================
+Post Modals >>> Vertical Posts >>> Post Modal First and Post Modal Second
+========================================================================== */
+
+.post-vertical-img {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  img {
+    &.post-vertical-author {
+      border-radius: 50%;
+    }
+    &.post-vertical-post {
+      margin-top: -10px;
+      width: 100%;
+      border: solid 2px $main-color;
+    }
+  }
+}
+
+.post-vertical-title {
+  text-align: center;
+  h1 a {
+    font-size: $font-size + 7;
+    color: #000;
+    font-weight: $post-title-font-weigt;
+    text-transform: $post-title;
+  }
+}
+
+.post-vertical-category {
+  text-align: center;
+  padding-bottom: 10px;
+  a {
+    display: inline-block;
+    color: darken($main-color, 15);
+    &:hover {
+      color: $main-color;
+    }
+    &:after {
+      content: $category-separator;
+      padding-right: 10px;
+      margin-left: 10px;
+      overflow: hidden;
+    }
+    &:last-child:after {
+      content: ' ';
+    }
+  }
+}
+
+.post-vertical-tags a, .post-vertical-comments a {
+  color: darken($main-color, 15);
+}
+
+.post-vertical-tags a:hover, .post-vertical-comments a:hover {
+  color: $main-color;
+}
+
+/* ==========================================================================
+Post Modals >>> Vertical Posts >>> Post Modal Third
+========================================================================== */
+
+.post-vertical-third-img img {
+  width: 100%;
+  height: auto;
+}
+
+.post-vertical-third-detail {
+  font-size: $font-size + 1;
+  padding: 30px 15px;
+  position: relative;
+  background: #fff;
+}
+
+.post-vertical-third-date {
+  color: $main-color;
+  font-size: $font-size;
+  &:hover {
+    color: darken($main-color, 10);
+  }
+}
+
+.post-vertical-third-title {
+  width: 100%;
+  h1 a {
+    color: #000;
+    font-size: $font-size + 11;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    text-transform: $post-title;
+    font-weight: $post-title-font-weigt;
+  }
+}
+
+.post-vertical-third-post {
+  padding-top: 0px;
+  p {
+    color: #777;
+    font-size: $font-size;
+    &:after {
+      content: $after-post;
+    }
+  }
+}
+.post-vertical-third-category {
+  color: #fff;
+  background: $main-color;
+  display: inline-block;
+  font-size: $font-size - 1;
+  font-weight: $font-weight + 300;
+  text-transform: uppercase;
+  margin: 5px 0;
+  padding: 3px 8px;
+  border-radius: 1px;
+  a {
+    color: #fff;
+    font-size: $font-size -1;
+    font-weight: $font-weight + 200;
+    text-transform: uppercase;
+      &:hover{
+          color: #f1f1f1;
+      }
+  }
+}
+
+/* ==========================================================================
+Single Page
+========================================================================== */
+
+#disqus_thread {
+  padding: 20px !important;
+}
+.img-border-rounded-single {
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -khtml-border-radius: 50%;
+     border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================================
+Single Page >>> First Single Page
+========================================================================== */
+
+.single-title h1 {
+  color: #404040;
+  width: 100%;
+  font-weight: $font-weight + 200;
+  line-height: 1.4;
+  font-size: $font-size + 27;
+}
+
+.single-title h1 img {
+  padding: 15px;
+}
+
+.single-article, .single-article p {
+  img {
+    padding: 15px;
+  }
+  font-size: $font-size + 1;
+  line-height: 1.6;
+  color: #777;
+  font-weight: $font-weight - 100;
+  text-align: justify;
+  padding: 10px;
+}
+
+.single-avatar {
+  position: relative;
+  top: -50px;
+  margin-bottom: -50px;
+  a {
+    color: #3e474f;
+    font-weight: $font-weight + 400;
+    &:hover {
+      color: #3e474f;
+      font-weight: $font-weight + 400;
+    }
+  }
+  em {
+    border-bottom: 2px solid #f6f9fa;
+    padding: 0 0 10px;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+  }
+}
+
+.single-image {
+  background-size: cover;
+  height: 350px;
+}
+
+.single-first {
+  padding-top: 20px;
+  margin: 10px 0 20px 0;
+  background-color: rgba(214, 224, 226, 0.2);
+  border-top-width: 0;
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.single-first-body {
+  background-color: #fff;
+  position: relative;
+  padding-top: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.single-first {
+  .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+  }
+  .tags {
+    background-color: #185955;
+    line-height: 38px;
+    border-radius: 10px;
+    a, li, i {
+      color: #fff;
+    }
+  }
+  .btn {
+    border-radius: 50% !important;
+    width: 40px;
+    height: 40px;
+    line-height: 28px;
+  }
+}
+
+.tag-single {
+  margin-top: 40px;
+  list-style-type: none;
+  margin-left: 0;
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    a {
+      border: 2px solid #eaedee;
+      border-radius: 5px;
+      padding: 8px 22px;
+      color: #656c72;
+      transition: $animation;
+      -webkit-transition: $animation;
+      display: block;
+      margin: 5px 0;
+      &:hover {
+        border: 2px solid #dde0e1;
+        color: #3e474f;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+Single Page >>> Comment
+========================================================================== */
+
+#comment-form {
+  width: 75%;
+  margin: 0 auto;
+  input[type='text'], textarea {
+    background: #e8ebed;
+    line-height: 1.3 !important;
+    margin: 0;
+    font-size: $font-size + 1;
+    color: #657380;
+    width: 100%;
+    padding: 12px 15px;
+    outline: 0;
+    border: 2px solid #e8ebed;
+    -webkit-appearance: none;
+    border-radius: 5px;
+    box-shadow: 0;
+    box-sizing: border-box;
+    transition: $animation;
+    -webkit-transition: $animation;
+    margin-bottom: 15px;
+  }
+  input[type='text'] {
+    + label {
+      position: absolute;
+      top: 13px;
+      right: 18px;
+      left: 18px;
+      line-height: 1.3;
+      margin: 0;
+      font-size: $font-size + 1;
+      white-space: nowrap;
+      cursor: text;
+      color: #aaa;
+      z-index: 5;
+      overflow: hidden;
+      font-weight: $font-weight + 100;
+      display: inline;
+    }
+    &:focus {
+      background: #fff;
+      border: 2px solid $main-color;
+      -webkit-box-shadow: 0px 0px 4px 0px darken($main-color, 15);
+      box-shadow: 0px 0px 4px 0px darken($main-color, 15);
+    }
+  }
+}
+
+#comment-formtextarea:focus {
+  background: #fff;
+  border: 2px solid $main-color;
+  -webkit-box-shadow: 0px 0px 4px 0px darken($main-color, 15);
+  box-shadow: 0px 0px 4px 0px darken($main-color, 15);
+}
+
+#comment-form {
+  p {
+    position: relative;
+    margin-bottom: 0;
+  }
+  .button {
+    border-radius: 5px;
+    background: transparent;
+    border: 2px solid $main-color;
+    color: $main-color;
+    padding: 10px 26px;
+    font-size: $font-size + 1;
+    display: inline-block;
+    margin: 0;
+    font-weight: $font-weight + 400;
+    text-align: center;
+    transition: $animation;
+    -webkit-transition: $animation;
+    &:hover, &:active, &:focus {
+      outline: none;
+      color: darken($main-color, 15);
+      border: 2px solid darken($main-color, 15);
+      transition: $animation;
+      -webkit-transition: $animation;
+
+    }
+  }
+}
+
+#single-comments {
+  padding: 15px;
+  .media {
+    p {
+      /*    border-bottom: solid 2px #aaa; */
+      padding: 15px;
+      background-color: #e7e7e7;
+      border-radius: 9px;
+    }
+    img {
+      border-radius: 50%;
+      border: $main-color solid 2px;
+    }
+  }
+}
+
+.media-left img {
+  width: 90px;
+  height: 90px;
+}
+
+span.comment-author {
+  display: block;
+  width: 100%;
+  padding-bottom: 10px;
+    a{
+        color: $main-color;
+    }
+}
+
+.media-body p {
+  text-align: left;
+}
+
+span.reply {
+  display: block;
+  width: 100%;
+  a {
+    background-color: #eee;
+    color: #aaa;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: $font-size -1;
+    padding: 6px 11px 7px;
+    line-height: 0.8;
+    display: inline-block;
+    font-weight: $font-weight;
+    text-align: center;
+  }
+}
